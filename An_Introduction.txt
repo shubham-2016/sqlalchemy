@@ -31,5 +31,6 @@ open terminal with python3
         delete_it = Example.query.filter_by(id=3).first()
         db.session.delete(delete_it)
         db.session.commit()
+        
 
         
