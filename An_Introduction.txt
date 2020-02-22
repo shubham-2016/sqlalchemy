@@ -1,0 +1,35 @@
+pip install FLASK-SQLAlchemy
+
+pip install pymysql
+
+sudo apt-get install python3-pymysql
+
+open terminal with python3
+
+    from alchemy import Example
+
+        examples = Example.query.all()
+
+        for ex in examples:
+            print(ex.name)
+
+        one = Example.query.filter_by(id=2).first()
+        one.name
+
+    from alchemy import db
+
+        new_ex = Example(3,'Bhau','Software Development')
+        db.session.add(new_ex)
+        db.session.commit()
+
+        update_this = Example.query.filter_by(id=3).first()
+        update_this.data // 'Software Development'
+
+        update_this.data = 'Software Dev'
+        db.session.commit()
+
+        delete_it = Example.query.filter_by(id=3).first()
+        db.session.delete(delete_it)
+        db.session.commit()
+
+        
