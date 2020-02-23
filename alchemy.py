@@ -16,11 +16,3 @@ class Example(db.Model):
         self.id = id
         self.name = name
         self.data = data
-
-        asdasdf
-        sadf
-        sadf
-        sadf
-        SQLALCHEMY_DATABASE_URIfdasf
-
-        asdfs
