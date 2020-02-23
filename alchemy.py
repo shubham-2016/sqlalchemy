@@ -16,3 +16,4 @@ class Example(db.Model):
         self.id = id
         self.name = name
         self.data = data
+        
