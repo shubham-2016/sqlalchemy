@@ -6,6 +6,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:ac3r@localhost/sqlalchemy'
 db = SQLAlchemy(app)
 
+# This is example class  
+
 class Example(db.Model):
     __tablename__ = 'example'
     id = db.Column('id',db.Integer,primary_key=True)
