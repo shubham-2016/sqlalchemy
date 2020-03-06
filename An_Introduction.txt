@@ -1,0 +1,103 @@
+python3 -m venv flask_env
+
+source flask_env/bin/activate
+
+export FLASK_APP=flaskblog.py
+export FLASK_DEBUG=1
+flask run
+
+
+sudo lsof -i:5000
+
+sudo kill -9 <PID>
+
+------------------------------------------------
+
+pip install FLASK-SQLAlchemy
+
+pip install pymysql
+
+sudo apt-get install python3-pymysql
+
+open terminal with python3
+
+    from alchemy import Example
+
+        examples = Example.query.all()
+
+        for ex in examples:
+            print(ex.name)
+
+        one = Example.query.filter_by(id=2).first()
+        one.name
+
+    from alchemy import db
+
+        new_ex = Example(3,'Bhau','Software Development')
+        db.session.add(new_ex)
+        db.session.commit()
+
+        update_this = Example.query.filter_by(id=3).first()
+        update_this.data // 'Software Development'
+
+        update_this.data = 'Software Dev'
+        db.session.commit()
+
+        delete_it = Example.query.filter_by(id=3).first()
+        db.session.delete(delete_it)
+        db.session.commit()
+
+    from one_to_many_relationship import db
+
+        db.create_all()  //db created
+
+    from one_to_many_relationship import Pet, Person
+
+        anil = Person(name='Anil')        
+        db.session.add(anil)
+        db.session.commit()
+
+        ankush = Person(name='Ankush')        
+        db.session.add(ankush)
+        db.session.commit()
+
+        petAnil = Pet(name='Dog',owner=anil)
+        db.session.add(petAnil)
+        db.session.commit()
+
+        petAnkush = Pet(name='Picock',owner=ankush)
+        db.session.add(petAnkush)
+        db.session.commit()
+
+        getPerson = Person.query.filter_by(name='Ankush').first()
+        getPerson  // <Person 4>
+        getPerson.name  // Ankush
+
+        getPerson.pets[0].name  // cat
+        getPerson.pets[1].name  // ox
+
+        updatePet = Pet.query.filter_by(id=3).first()
+        updatePet.name = 'Ox'
+        db.session.add(updatePet)
+        db.session.commit()
+
+        updatePet.name  // Ox
+        updatePet.owner.name // Ankush
+
+----------------------------------------------------------
+
+Start the Enviornment before proceed
+
+pip install flask-migrate
+
+OR 
+
+pip install Flask-Migrate
+
+pip install Flask-Script
+
+
+$ python migrate_example.py db init
+$ python migrate_example.py db migrate
+$ python migrate_example.py db upgrade
+$ python migrate_example.py db --help
